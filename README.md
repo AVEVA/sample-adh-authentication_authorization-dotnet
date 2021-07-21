@@ -1,6 +1,6 @@
 # Authorization Code Flow + PKCE DotNet Sample and Test
 
-**Version:** 1.2.15
+**Version:** 1.2.16
 
 [![Build Status](https://dev.azure.com/osieng/engineering/_apis/build/status/product-readiness/osisoft.sample-ocs-authentication_authorization-dotnet?repoName=osisoft%2Fsample-ocs-authentication_authorization-dotnet&branchName=main)](https://dev.azure.com/osieng/engineering/_build/latest?definitionId=2602&repoName=osisoft%2Fsample-ocs-authentication_authorization-dotnet&branchName=main)
 

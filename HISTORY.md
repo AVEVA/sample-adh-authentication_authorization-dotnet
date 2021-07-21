@@ -1,5 +1,9 @@
 # Version History
 
+## 1.2.16 / 2020-07-20
+
+- Clean up gitignore
+
 ## 1.2.15 / 2020-06-09
 
 - Updated dependencies

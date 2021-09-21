@@ -23,13 +23,10 @@ resources:
       type: github
       name: osisoft/OSI-Samples
       endpoint: osisoft/OSI-Samples
+      ref: appsettings
 
 variables:
   - template: '/miscellaneous/build_templates/variables.yml@templates'
-  - name: CredFile
-    value: appsettings.json
-  - name: CredFileLibrary
-    value: product-readiness.auth_pkce_dotnet.json
   - name: analysisProject
     value: Auth_PKCE_DotNet
 
@@ -39,11 +36,9 @@ jobs:
       name: 00-OSIManaged-Test
       demands: COMPUTERNAME -equals $(buildAgent)
     steps:
-      - template: '/miscellaneous/build_templates/config.yml@templates'
+      - template: '/miscellaneous/build_templates/appsettings.yml@templates'
         parameters:
-          fileOriginal: $(CredFile)
-          fileLibrary: $(CredFileLibrary)
-          filePath: /AuthorizationCodeFlow
+          secrets: 'ClientId, TenantId, NamespaceId, Username, Password'
 
       - script: npm install chromedriver --detect_chromedriver_version
         displayName: 'Install chromedriver'

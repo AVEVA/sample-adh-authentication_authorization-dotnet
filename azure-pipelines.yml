@@ -34,10 +34,23 @@ jobs:
     pool:
       name: 00-OSIManaged-Test
       demands: COMPUTERNAME -equals $(buildAgent)
+    variables:
+      - name: Username
+        value: $(Username1)
+      - name: Password
+        value: $(Password1)
     steps:
+      # Download secrets from Azure Key Vault
+      - task: AzureKeyVault@2
+        inputs:
+          azureSubscription: '$(azureSubscription)'
+          KeyVaultName: 'Github-Samples'
+          SecretsFilter: 'Username1, Password1'
+          RunAsPreJob: true
+        
       - template: '/miscellaneous/build_templates/appsettings.yml@templates'
         parameters:
-          secrets: 'ClientId, TenantId, NamespaceId, Username, Password'
+          secrets: 'ClientId, TenantId, NamespaceId'
 
       - script: npm install chromedriver --detect_chromedriver_version
         displayName: 'Install chromedriver'

@@ -35,6 +35,8 @@ jobs:
       name: 00-OSIManaged-Test
       demands: COMPUTERNAME -equals $(buildAgent)
     variables:
+      - name: ClientId
+        value: $(AuthorizationCodeClientId)
       - name: Username
         value: $(Username1)
       - name: Password
@@ -45,12 +47,12 @@ jobs:
         inputs:
           azureSubscription: '$(azureSubscription)'
           KeyVaultName: 'Github-Samples'
-          SecretsFilter: 'Username1, Password1'
+          SecretsFilter: 'Username1, Password1, AuthorizationCodeClientId'
           RunAsPreJob: true
         
       - template: '/miscellaneous/build_templates/appsettings.yml@templates'
         parameters:
-          secrets: 'ClientId, TenantId, NamespaceId'
+          secrets: 'TenantId, NamespaceId'
 
       - script: npm install chromedriver --detect_chromedriver_version
         displayName: 'Install chromedriver'

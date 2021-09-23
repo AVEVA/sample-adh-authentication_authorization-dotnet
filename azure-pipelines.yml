@@ -23,6 +23,7 @@ resources:
       type: github
       name: osisoft/OSI-Samples
       endpoint: osisoft/OSI-Samples
+      ref: appsettings-update
 
 variables:
   - template: '/miscellaneous/build_templates/variables.yml@templates'
@@ -41,18 +42,10 @@ jobs:
         value: $(Username1)
       - name: Password
         value: $(Password1)
-    steps:
-      # Download secrets from Azure Key Vault
-      - task: AzureKeyVault@2
-        inputs:
-          azureSubscription: '$(azureSubscription)'
-          KeyVaultName: 'Github-Samples'
-          SecretsFilter: 'Username1, Password1, AuthorizationCodeClientId'
-          RunAsPreJob: true
-        
+    steps:        
       - template: '/miscellaneous/build_templates/appsettings.yml@templates'
         parameters:
-          secrets: 'TenantId, NamespaceId'
+          secrets: 'TenantId, NamespaceId, Username1, Password1, AuthorizationCodeClientId'
 
       - script: npm install chromedriver --detect_chromedriver_version
         displayName: 'Install chromedriver'

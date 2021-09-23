@@ -34,6 +34,13 @@ jobs:
     pool:
       name: 00-OSIManaged-Test
       demands: COMPUTERNAME -equals $(buildAgent)
+    variables:
+      - name: ClientId
+        value: $(AuthorizationCodeClientId)
+      - name: Username
+        value: $(Username1)
+      - name: Password
+        value: $(Password1)
     steps:        
       - template: '/miscellaneous/build_templates/appsettings.yml@templates'
         parameters:

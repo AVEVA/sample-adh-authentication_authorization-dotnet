@@ -50,8 +50,7 @@ jobs:
         displayName: 'Install chromedriver'
         
       - script: |
-          dotnet dev-certs https --clean
-          dotnet dev-certs https -t
+          dotnet dev-certs https
         displayName: 'Generate a developer certificate'
 
       - task: DotNetCoreCLI@2

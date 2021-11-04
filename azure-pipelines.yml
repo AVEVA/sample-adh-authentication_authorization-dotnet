@@ -66,6 +66,10 @@ jobs:
           command: test
           publishTestResults: true
           testRunTitle: '$(Agent.JobName) on $(Agent.OS)'
+          
+      - script: |
+          dotnet dev-certs https --clean
+        displayName: 'Remove generated developer certificate'
 
   - job: Analysis
     pool:

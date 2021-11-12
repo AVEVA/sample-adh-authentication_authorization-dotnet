@@ -1,6 +1,6 @@
 # Authorization Code Flow + PKCE DotNet Sample and Test
 
-**Version:** 1.2.20
+**Version:** 1.2.21
 
 [![Build Status](https://dev.azure.com/osieng/engineering/_apis/build/status/product-readiness/osisoft.sample-ocs-authentication_authorization-dotnet?repoName=osisoft%2Fsample-ocs-authentication_authorization-dotnet&branchName=main)](https://dev.azure.com/osieng/engineering/_build/latest?definitionId=2602&repoName=osisoft%2Fsample-ocs-authentication_authorization-dotnet&branchName=main)
 
@@ -25,6 +25,7 @@ This client uses the OAuth2/OIDC Authorization Code Flow + PKCE to obtain an acc
 - Register an Authorization Code client in OCS and ensure that the registered client in OCS contains `https://127.0.0.1:54567/signin-oidc` in the list of RedirectUris.
 - Configure the sample using the file [appsettings.placeholder.json](AuthorizationCodeFlow/appsettings.placeholder.json). Before editing, rename this file to `appsettings.json`. This repository's `.gitignore` rules should prevent the file from ever being checked in to any fork or branch, to ensure credentials are not compromised.
 - Replace the placeholders in the `appsettings.json` file with your Tenant Id and Client Id obtained from registration. The username and password fields are used for testing and can be left as is.
+- Note: As a test, a request is made against the users endpoint. If the tenant being used has strict mode enabled and the client does not have Tenant Admin permissions, the test will fail. In this case, it is recommended to change the url to a type or a stream that the client has permission to access. 
 
 ### Using Visual Studio
 
@@ -76,6 +77,6 @@ dotnet test
 
 Tested against DotNet 3.1.
 
-For the main OCS Authentication samples page [ReadMe](https://github.com/osisoft/OSI-Samples-OCS/blob/main/docs/AUTHENTICATION_README.md)  
+For the main OCS Authentication samples page [ReadMe](https://github.com/osisoft/OSI-Samples-OCS/blob/main/docs/AUTHENTICATION.md)  
 For the main OCS samples page [ReadMe](https://github.com/osisoft/OSI-Samples-OCS)  
 For the main OSIsoft samples page [ReadMe](https://github.com/osisoft/OSI-Samples)

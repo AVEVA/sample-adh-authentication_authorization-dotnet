@@ -29,14 +29,14 @@ namespace AuthorizationCodeFlow
                     SystemBrowser.UserName = GetConfigValue("UserName");
                 }
 
-                AuthorizationCode.OcsAddress = GetConfigValue("Resource");
+                AuthorizationCode.AdhAddress = GetConfigValue("Resource");
                 AuthorizationCode.RedirectHost = GetConfigValue("RedirectHost");
                 AuthorizationCode.RedirectPort = int.Parse(GetConfigValue("RedirectPort"), CultureInfo.InvariantCulture);
                 AuthorizationCode.RedirectPath = GetConfigValue("RedirectPath");
 
                 var tenantId = GetConfigValue("TenantId");
                 var clientId = GetConfigValue("ClientId");
-                var ocsUrl = GetConfigValue("Resource");
+                var adhUrl = GetConfigValue("Resource");
                 var apiVersion = GetConfigValue("ApiVersion");
 
                 // Get access token.
@@ -46,7 +46,7 @@ namespace AuthorizationCodeFlow
                 Console.WriteLine("Expires: " + expiration);
 
                 // Make a request to Get Users endpoint
-                var result1 = GetRequest($"{ocsUrl}/api/{apiVersion}/Tenants/{tenantId}/Users", accessToken).Result;
+                var result1 = GetRequest($"{adhUrl}/api/{apiVersion}/Tenants/{tenantId}/Users", accessToken).Result;
                 Console.WriteLine(result1
                     ? "Request succeeded"
                     : "request failed");

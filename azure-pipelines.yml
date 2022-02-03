@@ -44,7 +44,7 @@ jobs:
       - name: Username
         value: $(AuthorizationUsername)
       - name: Password
-        value: $(AuthorizationPassword)c
+        value: $(AuthorizationPassword)
       - name: Resource
         value: $(Resource)
     steps:        

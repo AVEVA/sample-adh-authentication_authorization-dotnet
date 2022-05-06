@@ -3,7 +3,7 @@
 | :loudspeaker: **Notice**: Samples have been updated to reflect that they work on AVEVA Data Hub. The samples also work on OSIsoft Cloud Services unless otherwise noted. |
 | -----------------------------------------------------------------------------------------------|  
 
-**Version:** 1.3.2
+**Version:** 1.4.0
 
 [![Build Status](https://dev.azure.com/osieng/engineering/_apis/build/status/product-readiness/aveva.sample-adh-authentication_authorization-dotnet?branchName=main)](https://dev.azure.com/osieng/engineering/_build/latest?definitionId=2602&branchName=main)
 
@@ -11,7 +11,7 @@ This client uses the OAuth2/OIDC Authorization Code Flow + PKCE to obtain an acc
 
 ## Requirements
 
-- .NET 5.0 (this requires Visual Studio 16.8 or later)
+- .NET 6.0 (this requires Visual Studio 17.1 or later)
 - Web Browser with Javascript enabled
 
   - You will need Google Chrome if you want to run the automated test
@@ -78,7 +78,7 @@ dotnet test
 
 ---
 
-Tested against DotNet 3.1.
+Tested against DotNet 6.0
 
 For the main ADH Authentication samples page [ReadMe](https://github.com/osisoft/OSI-Samples-OCS/blob/main/docs/AUTHENTICATION.md)  
 For the main ADH samples page [ReadMe](https://github.com/osisoft/OSI-Samples-OCS)  

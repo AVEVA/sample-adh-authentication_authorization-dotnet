@@ -1,5 +1,9 @@
 # Version History
 
+## 1.4.5 / 2023-04-11
+
+- Update Selenium login flow
+
 ## 1.4.4 / 2022-11-22
 
 - Resolve pipeline failure

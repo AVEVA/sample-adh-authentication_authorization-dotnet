@@ -45,8 +45,8 @@ namespace AuthorizationCodeFlow
                 Console.WriteLine("Access Token: " + accessToken);
                 Console.WriteLine("Expires: " + expiration);
 
-                // Make a request to Get Users endpoint
-                bool result1 = GetRequest($"{adhUrl}/api/{apiVersion}/Tenants/{tenantId}/Users", accessToken).Result;
+                // Make a request to Get Namespaces endpoint
+                bool result1 = GetRequest($"{adhUrl}/api/{apiVersion}/Tenants/{tenantId}/Namespaces", accessToken).Result;
                 Console.WriteLine(result1
                     ? "Request succeeded"
                     : "request failed");

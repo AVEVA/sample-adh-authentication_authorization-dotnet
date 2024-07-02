@@ -29,14 +29,14 @@ namespace AuthorizationCodeFlow
                     SystemBrowser.UserName = GetConfigValue("UserName");
                 }
 
-                AuthorizationCode.AdhAddress = GetConfigValue("Resource");
+                AuthorizationCode.CdsAddress = GetConfigValue("Resource");
                 AuthorizationCode.RedirectHost = GetConfigValue("RedirectHost");
                 AuthorizationCode.RedirectPort = int.Parse(GetConfigValue("RedirectPort"), CultureInfo.InvariantCulture);
                 AuthorizationCode.RedirectPath = GetConfigValue("RedirectPath");
 
                 string tenantId = GetConfigValue("TenantId");
                 string clientId = GetConfigValue("ClientId");
-                string adhUrl = GetConfigValue("Resource");
+                string cdsUrl = GetConfigValue("Resource");
                 string apiVersion = GetConfigValue("ApiVersion");
 
                 // Get access token.
@@ -46,7 +46,7 @@ namespace AuthorizationCodeFlow
                 Console.WriteLine("Expires: " + expiration);
 
                 // Make a request to Get Namespaces endpoint
-                bool result1 = GetRequest($"{adhUrl}/api/{apiVersion}/Tenants/{tenantId}/Namespaces", accessToken).Result;
+                bool result1 = GetRequest($"{cdsUrl}/api/{apiVersion}/Tenants/{tenantId}/Namespaces", accessToken).Result;
                 Console.WriteLine(result1
                     ? "Request succeeded"
                     : "request failed");

@@ -15,7 +15,7 @@ namespace AuthorizationCodeFlow
         private const string IdentityResourceSuffix = "/identity";
         private static OidcClient _oidcClient;
 
-        public static string AdhAddress { get; set; }
+        public static string CdsAddress { get; set; }
 
         public static string RedirectHost { get; set; }
 
@@ -23,9 +23,9 @@ namespace AuthorizationCodeFlow
 
         public static string RedirectPath { get; set; }
 
-        private static string AdhIdentityUrl
+        private static string CdsIdentityUrl
         {
-            get { return AdhAddress + IdentityResourceSuffix; }
+            get { return CdsAddress + IdentityResourceSuffix; }
         }
 
         public static (string, DateTimeOffset) GetAuthorizationCodeFlowAccessToken(string clientId, string tenantId)
@@ -66,7 +66,7 @@ namespace AuthorizationCodeFlow
             // Create a discovery request
             using DiscoveryDocumentRequest discoveryDocumentRequest = new ()
             {
-                Address = AdhIdentityUrl,
+                Address = CdsIdentityUrl,
                 Policy = new DiscoveryPolicy
                 {
                     ValidateIssuerName = false,
@@ -102,7 +102,7 @@ namespace AuthorizationCodeFlow
                 // Create the OICD client Options
                 OidcClientOptions options = new ()
                 {
-                    Authority = AdhIdentityUrl,
+                    Authority = CdsIdentityUrl,
                     ClientId = clientId,
                     RedirectUri = redirectUri,
                     Scope = scope,
